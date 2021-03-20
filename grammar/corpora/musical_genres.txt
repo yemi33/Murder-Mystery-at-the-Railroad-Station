@@ -1,0 +1,369 @@
+2-step
+4-beat
+acid breaks
+acid house
+acid jazz
+acid rock
+acid techno
+acid trance
+aggrotech
+alternative dance
+alternative metal
+alternative rock
+ambient dub
+ambient house
+ambient techno
+ambient
+anarcho punk
+anti-folk
+art punk
+art rock
+asian underground
+avant-garde jazz
+baggy
+balearic beat
+baltimore club
+bassline
+beat music
+bebop
+big beat
+bitpop
+black metal
+boogie-woogie
+boogie
+bossa nova
+bouncy house
+bouncy techno
+breakbeat hardcore
+breakbeat
+breakcore
+breakstep
+british dance
+britpop
+broken beat
+bubblegum dance
+canterbury scene
+cape jazz
+celtic metal
+celtic punk
+celtic
+chamber jazz
+chicago house
+chill out
+chillwave
+chinese rock
+chiptune
+christian metal
+christian punk
+christian rock
+classic trance
+coldwave
+contemporary folk
+continental jazz
+cool jazz
+cosmic disco
+cowpunk
+crossover jazz
+crossover thrash
+crunk
+crust punk
+crustgrind
+cybergrind
+d-beat
+dance-pop
+dance-punk
+dance-rock
+dark ambient
+dark cabaret
+dark electro
+dark psytrance
+dark wave
+darkcore
+darkside jungle
+darkstep
+death industrial
+death metal
+deathcore
+deathrock
+deep house
+desert rock
+detroit techno
+digital hardcore
+disco house
+disco polo
+disco
+diva house
+dixieland
+djent
+doom metal
+doomcore
+downtempo
+dream house
+dream pop
+dream trance
+drone metal
+drone
+drum and bass
+drumfunk
+drumstep
+dub
+dubstep
+dubstyle
+dubtronica
+dunedin sound
+dutch house
+edm
+electro backbeat
+electro house
+electro-grime
+electro-industrial
+electro
+electroacoustic
+electroclash
+electronic art music
+electronic rock
+electronica
+electronicore
+electropop
+electropunk
+emo
+epic doom
+ethereal wave
+ethnic electronica
+euro disco
+eurobeat
+eurodance
+european free jazz
+europop
+experimental rock
+filk
+florida breaks
+folk metal
+folk punk
+folk rock
+folk
+folktronica
+freak folk
+freakbeat
+free tekno
+freestyle house
+freestyle
+french house
+full on
+funeral doom
+funk metal
+funky house
+funky
+futurepop
+gabber
+garage punk
+garage rock
+ghetto house
+ghettotech
+glam metal
+glam rock
+glitch
+goregrind
+gothic metal
+gothic rock
+grime
+grindcore
+groove metal
+grunge
+happy hardcore
+hard bop
+hard nrg
+hard rock
+hard trance
+hardbag
+hardcore punk
+hardcore/hard dance
+hardstep
+hardstyle
+heavy metal
+hi-nrg
+hip house
+horror punk
+house
+idm
+illbient
+indie folk
+indie pop
+indie rock
+indietronica
+industrial folk
+industrial metal
+industrial rock
+industrial
+intelligent drum and bass
+italo dance
+italo disco
+italo house
+japanoise
+jazz blues
+jazz fusion
+jazz rap
+jazz rock
+jazz-funk
+jump-up
+jumpstyle
+krautrock
+laptronica
+latin house
+latin jazz
+liquid funk
+livetronica
+lowercase
+lo-fi
+madchester
+mainstream jazz
+makina
+math rock
+mathcore
+medieval metal
+melodic death metal
+metalcore
+minimal house/microhouse
+minimal
+modal jazz
+moombahton
+neo-bop jazz
+neo-psychedelia
+neo-swing
+neofolk
+neurofunk
+new beat
+new jack swing
+new prog
+new rave
+new wave
+new-age
+nintendocore
+no wave
+noise pop
+noise rock
+noise
+noisegrind
+nortec
+novelty ragtime
+nu jazz
+nu metal
+nu skool breaks
+nu-disco
+oldschool jungle
+orchestral jazz
+orchestral uplifting
+paisley underground
+pop punk
+pop rock
+post-bop
+post-britpop
+post-disco
+post-grunge
+post-hardcore
+post-metal
+post-punk revival
+post-punk
+post-rock
+power electronics
+power metal
+power noise
+power pop
+powerviolence
+progressive breaks
+progressive drum & bass
+progressive folk
+progressive house
+progressive metal
+progressive rock
+progressive techno
+progressive
+psybreaks
+psychedelic folk
+psychedelic rock
+psychedelic trance
+psychobilly
+psyprog
+punk jazz
+punk rock
+raga rock
+ragga-jungle
+raggacore
+ragtime
+rap metal
+rap rock
+rapcore
+riot grrrl
+rock and roll
+rock in opposition
+sadcore
+sambass
+screamo
+shibuya-kei
+shoegaze
+ska jazz
+ska punk
+skate punk
+skweee
+slowcore
+sludge metal
+smooth jazz
+soft rock
+soul jazz
+sound art
+southern rock
+space disco
+space house
+space rock
+speed garage
+speed metal
+speedcore
+stoner rock
+straight-ahead jazz
+street punk
+stride jazz
+sufi rock
+sung poetry
+suomisaundi
+surf rock
+swing house
+swing
+symphonic metal
+synthcore
+synthpop
+synthpunk
+tech house
+tech trance
+technical death metal
+techno-dnb
+techno-folk
+techno
+technopop
+techstep
+tecno brega
+terrorcore
+third stream
+thrash metal
+thrashcore
+toytown techno
+trad jazz
+traditional doom
+trance
+trap
+tribal house
+trip hop
+turbofolk
+twee pop
+uplifting trance
+vaporwave
+viking metal
+vocal house
+vocal jazz
+vocal trance
+west coast jazz
+western
+witch house/drag
+world fusion
+worldbeat
+yacht rock
+yorkshire bleeps and bass

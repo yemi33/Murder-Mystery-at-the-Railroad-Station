@@ -1,0 +1,658 @@
+#Regular Conversations among non-detectives
+$Talk
+
+"{Initiator} talks to {Recipient} about {Action}"
+#prob:0.7
+roles:
+	Initiator:Character
+	Recipient:Character
+	Location:Location
+  Action:Action
+	?Witness:Character
+preconditions:
+	(*:Character is at the Location)
+  (*:Character is alive)
+  (Initiator knows about Action)
+  !(Action is suspicious)
+  !(Recipient knows about Action)
+  !(Recipient is a detective)
+  !(Initiator is the culprit)
+  !(Initiator talks to Recipient about Action)
+  !(Action is a movement)
+  !(Action is a conversation)
+  !(Action is boring)
+effects:
+	(*:Character knows about Action)
+  (Initiator talks to Recipient about Action)
+  (This is a conversation)
+
+#The guilty will refrain from talking about the murder
+$GuiltyTalk
+
+"{Guilty} talks to {Recipient} about {Action}"
+prob:0.1
+roles:
+	Guilty:Character
+	Recipient:Character
+	Location:Location
+  Action:Action
+	?Witness:Character
+preconditions:
+	(*:Character is at the Location)
+  (*:Character is alive)
+  (Guilty is the culprit)
+  !(Recipient is a detective)
+  !(Action is murder)
+  !(Action is a movement)
+  !(Action is a conversation)
+  !(Guilty talks to Recipient about Action)
+effects:
+	(Recipient knows about Action)
+  (Guilty talks to Recipient about Action)
+  (This is a conversation)
+
+$Gossip
+"{Witness} tells {WB} about {Action}"
+roles:
+  Witness:Character
+  WB:Character
+  CM:Character
+  LB:Character
+  Action:Action
+  3rdPerson:Character
+preconditions:
+  (*:Character is alive)
+  (Action is scandalous)
+  (Witness knows about Action)
+  (CM is related to Action)
+  (CM loves LB)/(LB loves CM) 
+  (WB is the boss of the railroad station)
+  !(Witness tells WB about Action)
+effects:
+  (WB is jealous of CM)
+  (This is a motive)
+  (WB knows about Action)
+  (Witness tells WB about Action)
+  (*:Character knows about This)
+  #(This is a conversation)
+
+$AsksForPromotion 
+"{Initiator} talks to {Recipient} about a promotion"
+roles:
+	Initiator:Character
+	Recipient:Character
+  Witness:Character
+	Location:Location
+preconditions:
+	(*:Character is at the Location)
+	(Initiator is ambitious)
+  (Initiator is alive)
+  (Recipient is alive)
+  (Recipient is the boss of the railroad station)
+  (Initiator works for Recipient)
+  !(Initiator receives a promotion)
+  !(Initiator had their promotion rejected)
+effects:
+	(*:Character knows about This)
+  (Initiator asks Recipient about a promotion)
+  (This is boring)
+responses:
+  NoPromotion(Initiator=Initiator, Recipient=Recipient, Location=Location,Witness=Witness)
+  YesPromotion(Initiator=Initiator, Recipient=Recipient, Location=Location)
+
+$NoPromotion
+"{Recipient} doesn\'t give {Initiator} a promotion"
+roles:
+  Initiator:Character
+  Recipient:Character
+  Location:Location 
+  Witness:Character
+preconditions:
+  (*:Character is at the Location)
+  (*:Character is alive)
+  (Recipient is the boss of the railroad station)
+  !(Initiator had their promotion rejected)
+  !(Initiator receives a promotion)
+  (Initiator is ambitious)
+  (Initiator asks Recipient about a promotion)
+effects:
+  (Initiator had their promotion rejected)
+  (Initiator is upset at Recipient)
+  (*:Character knows about This)
+  (This is a motive)
+  (Initiator is related to This)
+
+
+$YesPromotion 
+"{Recipient} gives {Initiator} a promotion"
+roles:
+  Initiator:Character
+  Recipient:Character
+  Location:Location
+  ?Witness:Character
+preconditions:
+  (*:Character is at the Location)
+  (*:Character is alive)
+  !(Initiator receives a promotion)
+  !(Initiator had their promotion rejected)
+  (Recipient is the boss of the railroad station)
+  (Initiator asks Recipient about a promotion)
+  (Initiator is ambitious)
+effects:
+  (Initiator receives a promotion)
+  (*:Character knows about This)
+  (This is boring)
+
+
+$AsksForLand
+"{Initiator} asks {Recipient} to return the land"
+roles:
+	Initiator:Character
+	Recipient:Character
+	Location:Location
+  Witness:Character
+preconditions:
+	(*:Character is at the Location)
+  (*:Character is alive)
+  #(Recipient is working)
+	(Initiator is a native american chief)
+  (Recipient is the boss of the railroad station)
+  !(Initiator receives the land)
+  !(Initiator does not receive the land)
+effects:
+	(Initiator talks to Recipient about giving back the land)
+	(Recipient talks to Initiator about giving back the land)
+	(*:Character knows about This)
+  (This is boring)
+responses:
+  NoLand(Initiator=Initiator, Recipient=Recipient, Location=Location,Witness=Witness)
+  YesLand(Initiator=Initiator, Recipient=Recipient, Location=Location)
+
+
+$NoLand
+"{Recipient} doesn\'t give {Initiator} the land"
+roles:
+  Initiator:Character
+  Recipient:Character
+  Location:Location 
+  Witness:Character
+preconditions:
+  (*:Character is at the Location)
+  (*:Character is alive)
+  (Recipient is the boss of the railroad station)
+  !(Initiator does not receive the land)
+  !(Initiator receives the land)
+  (Recipient talks to Initiator about giving back the land)
+  (Initiator is a native american chief)
+effects:
+  (Initiator does not receive the land)
+  (Initiator is upset at Recipient)
+  (*:Character knows about This)
+  (This is a motive)
+  (Initiator is related to This)
+
+
+$YesLand 
+"{Recipient} gives {Initiator} the land"
+roles:
+  Initiator:Character
+  Recipient:Character
+  Location:Location
+  ?Witness:Character
+preconditions:
+  (*:Character is at the Location)
+  (*:Character is alive)
+  !(Initiator receives the land)
+  !(Initiator does not receive the land)
+  (Recipient talks to Initiator about giving back the land)
+  (Recipient is the boss of the railroad station)
+  (Initiator is a native american chief)
+effects:
+  (Initiator receives the land)
+  (*:Character knows about This)
+  (This is boring)
+
+
+$AsksForCompensation
+"{Initiator} asks {Recipient} to give compensation for his lost farm"
+roles:
+	Initiator:Character
+	Recipient:Character
+	Location:Location
+  Witness:Character
+preconditions:
+	(*:Character is at the Location)
+  (*:Character is alive)
+  #(Recipient is working)
+	(Initiator lost his farm to the railroad)
+  (Recipient is the boss of the railroad station)
+  !(Initiator receives the compensation)
+  !(Initiator does not receive the compensation)
+effects:
+	(Initiator talks to Recipient about giving compensation for the lost farm)
+	(Recipient talks to Initiator about giving compensation for the lost farm)
+	(*:Character knows about This)
+  (This is boring)
+responses:
+  NoCompensation(Initiator=Initiator, Recipient=Recipient, Location=Location, Witness=Witness)
+  YesCompensation(Initiator=Initiator, Recipient=Recipient, Location=Location)
+
+
+$NoCompensation
+"{Recipient} doesn\'t give {Initiator} the compensation"
+roles:
+  Initiator:Character
+  Recipient:Character
+  Location:Location 
+  Witness:Character
+preconditions:
+  (*:Character is at the Location)
+  (*:Character is alive)
+  (Recipient is the boss of the railroad station)
+  !(Initiator does not receive the compensation)
+  !(Initiator receives the compensation)
+  (Recipient talks to Initiator about giving compensation for the lost farm)
+  (Initiator lost his farm to the railroad)
+effects:
+  (Initiator does not receive the compensation)
+  (Initiator is upset at Recipient)
+  (*:Character knows about This)
+  (This is a motive)
+  (Initiator is related to This)
+
+
+$YesCompensation 
+"{Recipient} gives {Initiator} the compensation"
+roles:
+  Initiator:Character
+  Recipient:Character
+  Location:Location
+  ?Witness:Character
+preconditions:
+  (*:Character is at the Location)
+  (*:Character is alive)
+  !(Initiator receives the compensation)
+  !(Initiator does not receive the compensation)
+  (Recipient talks to Initiator about giving compensation for the lost farm)
+  (Recipient is the boss of the railroad station)
+  (Initiator lost his farm to the railroad)
+effects:
+  (Initiator receives the compensation)
+  (*:Character knows about This)
+  (This is boring)
+
+$Flirt
+"{Initiator} flirts with {Recipient}"
+roles:
+  Initiator:Character
+  Recipient:Character
+  Location:Location
+  WB:Character
+  Witness:Character
+preconditions:
+  (Initiator loves Recipient)
+  (*:Character is alive)
+  (*:Character is at the Location)
+  !(Initiator flirts with Recipient)
+  (WB is the boss of the railroad station)
+  !(Witness is a detective)
+effects:
+  (Initiator flirts with Recipient)
+  (*:Character knows about This)
+  (This is scandalous)
+  (Initiator is related to This)
+responses:
+   Infatuation(Initiator=Initiator, Recipient=Recipient,Witness=Witness)
+   Rejection(Initiator=Initiator, Recipient=Recipient, WB=WB,Witness=Witness)
+  
+
+$Infatuation
+"{Initiator} and {Recipient} are infatuated"
+roles:
+  Initiator:Character
+  Recipient:Character
+  Witness:Character
+preconditions:
+  (Initiator loves Recipient)
+  #!(Recipient loves Initiator)
+  (Initiator flirts with Recipient)
+  !(Initiator is rejected by Recipient)
+  !(Initiator and Recipient are infatuated)
+  !(Recipient and Initiator are infatuated)
+  !(Witness is a detective)
+effects:
+  (Initiator and Recipient are infatuated)
+  (Recipient loves Initiator)
+  (*:Character knows about This)
+  (This is scandalous)
+  (*:Character is related to This)
+
+$Rejection 
+"{Recipient} rejects {Initiator}\'s advances"
+roles:
+  Initiator:Character
+  Recipient:Character
+  WB:Character
+  Witness:Character
+preconditions:
+  (Initiator flirts with Recipient)
+  !(Recipient loves Initiator)
+  !(Initiator and Recipient are infatuated)
+  !(Initiator is rejected by Recipient)
+  (WB is the boss of the railroad station)
+  !(Witness is a detective)
+effects:
+  (Initiator is rejected by Recipient)
+  (Initiator is jealous of WB)
+  (Initiator knows about This)
+  (Recipient knows about This)
+  (This is a motive)
+  (Initiator is related to This)
+
+$Kiss
+"{Initiator} kisses {Recipient}"
+prob:0.3
+roles:
+  Initiator:Character
+  Recipient:Character
+  Witness:Character
+  Location:Location 
+preconditions:
+  (*:Character is at the Location)
+  (*:Character is alive)
+  (Initiator and Recipient are infatuated)
+  !(Witness is a detective)
+effects:
+  (Initiator kisses Recipient)
+  (This is scandalous)
+  (*:Character knows about This)
+  (*:Character is related to This)
+
+
+$Murder
+"Murderer murders {Victim} with {MurderWeapon}"
+roles:
+	Murderer:Character
+	Victim:Character
+	Location:Location
+  MurderWeapon:Prop
+  +Body={Victim}'s body:Prop
+preconditions:
+	(*:Character is at the Location)
+  (MurderWeapon is at the Location)
+  (Murderer is upset at Victim) / (Murderer is jealous of Victim) / (Murderer is jealous)
+  (*:Character is alive)
+  !(Murderer murders Victim)
+  !(Victim is a detective)
+  !(murder has happened)
+effects:
+	(Murderer murders Victim)
+	!(Victim is alive)
+  (Body is at the Location)
+  (Body is the deceased)
+  (MurderWeapon is at the Location)
+  (MurderWeapon is used to murder)
+	(Murderer is the culprit)
+  (This is murder)
+  !(Murderer is sad)
+  !(Murderer is upset at Victim)
+  !(Murderer is jealous)
+  (murder has happened)
+	(*:Character knows about This)
+
+
+$MoveEvidence
+"The murderer moves the evidence to {Destination}"
+roles:
+  Murderer:Character
+  Evidence:Prop
+  Origin:Location
+  Destination:Location
+  Witness:Character
+preconditions:
+  (Evidence is at the Origin)
+  !(Evidence is at the Destination)
+  (Evidence is used to murder)
+  !(Evidence is discovered)
+  (*:Character is alive)
+  (*:Character is at the Origin)
+  (Murderer is the culprit)
+  (Witness is at the Destination)
+  !(Murderer is at the Destination)
+  !(Murderer moves the Evidence)
+effects:
+  !(Evidence is at the Origin)
+  (Evidence is at the Destination)
+  !(Murderer is at the Origin)
+  (Murderer is at the Destination)
+  (Murderer moves the Evidence)
+  (Witness knows about This)
+  (Witness saw Murderer with the Evidence)
+  (This is suspicious)
+
+$Move
+"{Initiator} moves to {Destination}"
+prob:0.5
+roles:
+  Initiator:Character
+  Origin:Location
+  Destination:Location
+preconditions:
+  (Initiator is at the Origin)
+  !(Initiator is at the Destination)
+  (Initiator is alive)
+effects:
+  !(Initiator is at the Origin)
+  (Initiator is at the Destination)
+  (This is a movement)
+
+$Discover
+"{Discoverer} finds {Evidence} at {Location}"
+roles:
+  Discoverer:Character
+  Location:Location
+  Evidence:Prop
+  Detective:Character
+preconditions:
+  (Discoverer is at the Location)
+  (Evidence is at the Location)
+  (Evidence is used to murder) / (Evidence is the deceased)
+  !(Discoverer is the culprit)
+  !(Discoverer is a detective)
+  (Discoverer is alive)
+  !(Evidence is discovered by Discoverer)
+  !(Evidence is discovered)
+  !(Detective knows Evidence is the murder weapon)
+effects:
+  (Discoverer knows about This)
+  (Evidence is discovered by Discoverer)
+  (This is a discovery of evidence)
+  (Evidence is discovered)
+
+$DetectEvidence 
+"Detective {Detective} gets a hold of {Evidence} from {Discoverer}"
+roles:
+  Detective:Character
+  Discoverer:Character
+  Action:Action
+  Evidence:Prop
+  Location:Location
+preconditions:
+  (Detective is a detective)
+  (Detective is at the Location)
+  (Discoverer is at the Location)
+  (Discoverer is alive)
+  !(Discoverer is the culprit)
+  (Action is a discovery of evidence)
+  (Discoverer knows about Action)
+  (Evidence is at the Location)
+  (Evidence is used to murder)
+  (Evidence is discovered by Discoverer)
+  !(Detective knows Evidence is the murder weapon)
+effects:
+  (Detective knows Evidence is the murder weapon)
+
+$TalktoWitness
+"Detective {Detective} talks with {Witness} who saw {Murderer} with the {Evidence}"
+roles:
+  Detective:Character
+  Evidence:Prop
+  Witness:Character
+  Murderer:Character
+  Victim:Victim
+  Location:Location
+  #Destination:Location
+  Action:Action
+preconditions:
+  (Detective is a detective)
+  (Detective is at the Location)
+  #!(Detective is at the Destination)
+  (Witness is at the Location)
+  (Witness is alive)
+  (Murderer is the culprit)
+  (Detective knows Evidence is the murder weapon)
+  (Witness saw Murderer with the Evidence)
+  (Detective learns about Action which is related to Murderer and could be a motive)
+  !(Detective knows about Murderer moving the Evidence)
+  !(Victim is alive)
+effects:
+  (Detective knows about Murderer moving the Evidence)
+  (This is a conversation)
+responses:
+  Suspect(Detective=Detective,Evidence=Evidence,Suspect=Murderer,Action=Action,Victim=Victim)
+
+$Interview
+"Detective {Detective} learns about {Action} from {Interviewee}"
+roles:
+  Detective:Character
+  Action:Action
+  Evidence:Prop
+  Interviewee:Character
+  Suspect:Character
+  Location:Location
+  #Destination:Location
+  Victim:Character
+preconditions:
+  (Detective is a detective)
+  (Interviewee is alive)
+  (Detective is at the Location)
+  #!(Detective is at the Destination)
+  (Interviewee is at the Location)
+  (Action is a motive)
+  (Detective knows Evidence is the murder weapon)
+  (Interviewee knows about Action)
+  (Suspect is related to Action)
+  !(Detective learns about Action which is related to Suspect and could be a motive)
+  !(Victim is alive)
+effects:
+  (Detective learns about Action which is related to Suspect and could be a motive)
+  (This is a conversation)
+responses:
+  Suspect(Detective=Detective,Evidence=Evidence,Suspect=Suspect,Action=Action,Victim=Victim)
+
+$Suspect
+"Detective {Detective} suspects that {Suspect} murdered {Victim} with {Evidence}"
+roles:
+  Detective:Character
+  Evidence:Prop
+  Suspect:Character
+  Victim:Character
+  #Origin:Origin
+  #Location:Location
+  Action:Action
+preconditions:
+  (Detective is a detective)
+  !(Victim is alive)
+  #(Detective is at the Origin)
+  #!(Detective is at the Location)
+  (Detective knows Evidence is the murder weapon)
+  (Detective knows about Suspect moving the Evidence)/(Detective learns about Action which is related to Suspect and could be a motive)
+  !(Detective suspects that Suspect is the murderer)
+effects:
+  (Detective suspects that Suspect is the murderer)
+#responses:
+  #Pursue(Detective=Detective,Suspect=Suspect,Victim=Victim,Evidence=Evidence,Origin=Origin,Location=Location,Action=Action)
+
+$Pursue
+"Detective {Detective} pursues {Suspect}"
+roles:
+  Detective:Character
+  Suspect:Character
+  #Victim:Character
+  Evidence:Prop
+  Origin:Location
+  Location:Location
+  Action:Action
+preconditions:
+  (Detective is a detective)
+  (Suspect is alive)
+  #!(Victim is alive)
+  (Detective suspects that Suspect is the murderer)
+  (Detective learns about Action which is related to Suspect and could be motive)
+  (Detective is at the Origin)
+  (Suspect is at the Location)
+  !(Detective is at the Location)
+effects:
+  (Detective is at the Location)
+  !(Detective is at the Origin)
+  (This is a movement)
+responses:
+  Accuse(Detective=Detective,Suspect=Suspect,Location=Location)
+  
+$Accuse
+"Detective {Detective} accuses {Suspect} of murder"
+roles:
+  Detective:Character
+  Suspect:Character
+  #Victim:Character
+  #Evidence:Prop
+  #Action:Action
+  Location:Location
+preconditions:
+  (Detective is at the Location)
+  (Suspect is at the Location)
+  (Detective is a detective)
+  #!(Victim is alive)
+  (Detective suspects that Suspect is the murderer)
+  #(Detective learns about Action which is related to Suspect and could be motive)
+  !(Detective accuses Suspect of murder)
+effects:
+  (Detective accuses Suspect of murder)
+responses:
+  Confess(Suspect=Suspect,Detective=Detective)
+  FalseAccusation(Suspect=Suspect,Detective=Detective)
+
+$Confess
+"{Suspect} confesses that he is the murderer"
+roles:
+  Suspect:Character 
+  Detective:Character
+  #Evidence:Prop
+  #Victim:Character
+preconditions:
+  (Detective is a detective)
+  (Suspect is the culprit)
+  #!(Victim is alive)
+  (Detective accuses Suspect of murder)
+  !(Suspect confesses that he is the murderer)
+effects:
+  (Suspect confesses that he is the murderer)
+  (Detective suspects that Suspect is the murderer)
+
+$FalseAccusation
+"{Suspect} denies that he is the murderer and gives an alibi"
+roles:
+  Suspect:Character 
+  Detective:Character
+  #Evidence:Prop
+  #Victim:Character
+preconditions:
+  (Detective is a detective)
+  !(Suspect is the culprit)
+  #!(Victim is alive)
+  (Detective accuses Suspect of murder)
+  !(Suspect denies that he is the murderer)
+effects:
+  (Suspect denies that he is the murderer)
+  (Detective suspects that Suspect is the murderer)
+

@@ -1,0 +1,32 @@
+airplane
+ambulance
+baby carriage
+bicycle
+boat
+bulldozer
+bus
+camper van
+caravan
+carriage
+cement mixer
+crane
+delivery van
+dump truck
+fire engine
+forklift
+helicopter
+hot-air balloon
+moped
+motorcycle
+mountain bike
+police car
+rowboat
+scooter
+skateboard
+subway
+taxi
+tractor
+train
+streetcar
+truck
+van

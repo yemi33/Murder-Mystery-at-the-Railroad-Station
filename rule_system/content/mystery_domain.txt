@@ -1,0 +1,78 @@
+	<BEGIN ENTITIES>
+
+Warren Brantley:Character
+Linda Brantley:Character
+Walker Cobb:Character
+Ella Wadsworth:Character
+Soaring Eagle:Character
+Cleatus Merrick:Character
+Alfonso Shuford:Character
+Railroad Station:Location
+Saloon:Location
+Village:Location
+whiskey bottle:Prop
+cigarette:Prop
+letter opener:Prop
+revolver:Prop
+dagger:Prop
+lead pipe:Prop
+rope:Prop
+candlestick:Prop
+wrench:Prop
+glass:Prop
+arrow:Prop
+Body:Prop
+
+	<END ENTITIES>
+
+	<BEGIN FACTS>
+
+<Warren Brantley> is the boss of the railroad station
+<Warren Brantley> is married to <Linda Brantley>
+<Linda Brantley> is married to <Warren Brantley>
+<Cleatus Merrick> works for <Warren Brantley>
+<Cleatus Merrick> loves <Linda Brantley>
+<Walker Cobb> works for <Warren Brantley>
+<Walker Cobb> is ambitious
+<Alfonso Shuford> lost his farm to the railroad
+<Alfonso Shuford> works for <Warren Brantley>
+<Ella Wadsworth> is a detective 
+<Soaring Eagle> is a native american chief
+<Alfonso Shuford> and <Cleatus Merrick> are friends
+<Walker Cobb> dislikes <Alfonso Shuford>
+<Walker Cobb> dislikes <Cleatus Merrick>
+<Alfonso Shuford> dislikes <Walker Cobb>
+<Cleatus Merrick> dislikes <Walker Cobb>
+<Linda Brantley> works at the <Saloon>
+<Warren Brantley> works at the <Railroad Station>
+<Cleatus Merrick> works at the <Railroad Station>
+<Alfonso Shuford> works at the <Railroad Station>
+<Walker Cobb> works at the <Railroad Station>
+<Linda Brantley> is at the <Saloon>
+<Soaring Eagle> is at the <Village>
+<Ella Wadsworth> is at the <Saloon>
+<Warren Brantley> is at the <Railroad Station>
+<Cleatus Merrick> is at the <Railroad Station>
+<Alfonso Shuford> is at the <Railroad Station>
+<Walker Cobb> is at the <Railroad Station>
+<Warren Brantley> is alive
+<Linda Brantley> is alive
+<Walker Cobb> is alive
+<Cleatus Merrick> is alive
+<Alfonso Shuford> is alive
+<Ella Wadsworth> is alive
+<Soaring Eagle> is alive
+<Warren Brantley> is working
+<Linda Brantley> is working
+<cigarette> is at the <Railroad Station>
+<whiskey bottle> is at the <Saloon>
+<letter opener> is at the <Railroad Station>
+<revolver> is at the <Railroad Station>
+<dagger> is at the <Village>
+<lead pipe> is at the <Railroad Station>
+<rope> is at the <Railroad Station>
+<candlestick> is at the <Saloon>
+<wrench> is at the <Village>
+<glass> is at the <Saloon>
+<arrow> is at the <Village>
+	<END FACTS>

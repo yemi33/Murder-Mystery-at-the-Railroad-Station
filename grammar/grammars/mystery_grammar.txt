@@ -1,0 +1,42 @@
+DET -> the|a|every|an|not every|some
+NOUN -> <CORPUS_NOUN>|moon|sun|doctor|planet|raindrop|clown|man|woman|person|city
+CORPUS_NOUN -> $nouns.txt
+VERB -> <MOVEMENT_VERB>|<SPEECH_VERB>
+MOVEMENT_VERB -> walks|bikes|runs|rides the train
+SPEECH_VERB -> screamed|talks|speaks|whispers
+ADJ -> green|fast|orange|angry|happy|sad
+ADV -> $adverbs.txt
+PREP -> to|under|with|over|aside
+PREP -> aside, under, and beneath|around
+
+Talk -> At the <@Location>, <@Initiator> talked to <@Recipient> about <@Action>. 
+GuiltyTalk -> At the <@Location>, <@Initiator> talked to <@Recipient> about <@Action>. 
+Gossip -> <@Gossiper> told <@WB> about <@Action> which upset him greatly. 
+AsksForPromotion -> <@Initiator> spotted <@Recipient> at the <@Location>. The ambitious person as <@Initiator.they> was, <@Initiator.they> walked up to his boss, and demanded he get a promotion. 
+NoPromotion -> <@Recipient> declined <@Initiator>'s promotion request, upsetting <@Initiator.them> greatly.
+YesPromotion -> <@Recipient> agreed that <@Initiator> deserved a promotion and a raise for their hard work at the <@Location>.
+AsksForLand -> <@Initiator> approached <@Recipient> at the <@Location> and requested that the railroad company leave <@Initiator.their> nearby village alone.
+YesLand -> <@Recipient> promised <@Initiator> that <@Recipient.they> would give <@Initiator> a portion of the land back.
+NoLand -> <@Recipient> stated that <@Initiator>'s village was in the way of progress and must be built over. <@Initiator> was furious.
+AsksForCompensation -> <@Initiator> pulled <@Recipient> aside at the <@Location> and asked for compensation for <@Initiator.their> old farm that the railroad built over.
+YesCompensation -> <@Initiator> gets what he wants and returns home joyful.
+NoCompensation -> <@Recipient> was incredulous at <@Initiator>'s nerve to ask that of his boss and said <@Recipient.they> would never pay the compensation.
+Flirt -> <@Initiator>, noticing his dear <@Recipient> at the <@Location>, looked around to see if her husband was around. No Warren Brantley. Check. He walked up to the bar, straightening his collar, running his fingers through his golden hair, sat down, and said, "Hey, how you do"
+Infatuation -> <@Recipient> looked one more time at <@Initiator>--it was a feeling <@Recipient.they> hadn't felt in years, ever since <@Recipient.their> husband became the boss of the Railroad Station, and expansion of the railroad was all he cared about. <@Recipient>'s eyes glimmered under the dim light. She reached out her small hand to grab that of <@Initiator>. They smiled, and knew they had nothing more to say.  
+Rejection -> <@Recipient> looked disgusted. "I want to exchange no more words with you," she said, staring right into the despair of <@Initiator>'s abysmal eyes, now beginning to water.  <@Initiator> had made up <@Initiatior.their> mind. <@Initiatior.they> grudgingly made his way to the door. 
+Kiss -> <@Initiator> and <@Recipient> convened behind the close curtains at the <@Location>. Looking intensely into each other's eyes for a few seconds, they did only one thing that was sensible for a newly budding couple to do --kiss. The act was commited under meticulous a secret--or so they thought. Little did they know that <@Witness>, who had happened upon the scene on <@Witness.their> way to the toilet, had seen their heinous act from start to finish and was itching to serve justice on a crime he conceived to be the highest offence. 
+Murder ->Stealthly, someone was creeping up behind the oblivious <@Victim> as he stood in his last splendor. <@Murderer.they> might have had eyes that were bulging red from mad fury. <@Murderer.they> might have also had arms that were trembling as he pounded down on the skull of the poor man, <@Victim> with the <@MurderWeapon> and saw before his eyes the giant fall with a great thud, breathing his last. 
+MoveEvidence  -> Worried about the <@Evidence> being discovered, <@Murderer> carried it from <@Origin> to <@Destination>. Little did <@Murderer.they> know, <@Witness> had seen them moving it.
+Discover -> <@Discoverer> was at the <@Location>, trying to remember the name of <@Discoverer.their> childhood dog, when <@Evidence> caught the corner of their eye. <@Discoverer.they> picked the <@Evidence> up and pocketed it.
+DetectEvidence -> Detective <@Detective> was at the <@Location> wondering what <@Detective.their> next move would be to solve the case when <@Discoverer> passed by and slipped the <@Evidence> into <@Detective.their> hands.
+TalktoWitness -> Detective <@Detective> was approached by <@Witness>; <@Witness.they> seemed nervous. <@Witness.they> said <@Witness.they> had seen <@Murderer> with the <@Evidence> over by the <@Location>. <@Witness> didn't stick around to talk much, leaving <@Detectiv>e
+Interview -> It was hard getting people to talk to <@Detective.them> on the frontier, but Detective <@Detective> was able to sit <@Interviewee> down and learn about <@Action> from <@Interviewee.them>.
+Suspect -> Detective <@Detective> began to feel like <@Detective.they> had a handle on the case. All signs pointed towards <@Suspect> murdering <@Victim> with the <@Evidence>.
+Pursue -> After gathering evidence pointing towards <@Suspect> as the murderer, Detective <@Detective> pursued them across the frontier, looking to bring <@Suspect.them> to justice.
+Accuse -> After finally finding <@Suspect.them> at the <@Location>, Detective <@Detective> accused <@Suspect> of being the murderer.
+Confess -> <@Suspect> began to sweat profusely at the accusation. <@Suspect.their> eyes darted around the room, looking for a way out. <@Suspect.they> began to run, trying to get away before stumbling in their haste. On the ground and with nowhere to go, <@Suspect.they> confessed to being the murderer.
+FalseAccusation -> <@Suspect> denied that <@Suspect.they> were the murderer. <@Suspect.they> said that at the time of the murder <@Suspect.they> was hunting and the fresh buffalo meat at <@Suspect.their> house backed <@Suspect.their> claim up.
+Briefing -> Detective <@Detective> revealed that <@Culprit> murdered <@Victim> with the <@Weapon> at the <@Location> because of <@Action>
+Move -> <@Initiator> doesn't want to be in <@Origin> anymore, so <@Initiator.they> <MOVEMENT_VERB> <ADV> to <@Destination>.
+
+
