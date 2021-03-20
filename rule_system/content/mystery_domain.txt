@@ -23,6 +23,48 @@ glass:Prop
 arrow:Prop
 Body:Prop
 
+Warren Brantley.they = he
+Warren Brantley.them = him
+Warren Brantley.their = his
+Warren Brantley.theirs = his
+Warren Brantley.themself = himself
+
+Linda Brantley.they = she
+Linda Brantley.them = her
+Linda Brantley.their = hers
+Linda Brantley.theirs = hers
+Linda Brantley.themself = herself
+
+Ella Wadsworth.they = she
+Ella Wadsworth.them = her
+Ella Wadsworth.their = hers
+Ella Wadsworth.theirs = hers
+Ella Wadsworth.themself = herself
+
+Walker Cobb.they = he
+Walker Cobb.them = him
+Walker Cobb.their = his
+Walker Cobb.theirs = his
+Walker Cobb.themself = himself
+
+Soaring Eagle.they = he
+Soaring Eagle.them = him
+Soaring Eagle.their = his
+Soaring Eagle.theirs = his
+Soaring Eagle.themself = himself
+
+Cleatus Merrick.they = he
+Cleatus Merrick.them = him
+Cleatus Merrick.their = his
+Cleatus Merrick.theirs = his
+Cleatus Merrick.themself = himself
+
+Alfonso Shuford.they = he
+Alfonso Shuford.them = him
+Alfonso Shuford.their = his
+Alfonso Shuford.theirs = his
+Alfonso Shuford.themself = himself
+
 	<END ENTITIES>
 
 	<BEGIN FACTS>
@@ -52,9 +94,9 @@ Body:Prop
 <Soaring Eagle> is at the <Village>
 <Ella Wadsworth> is at the <Saloon>
 <Warren Brantley> is at the <Railroad Station>
-<Cleatus Merrick> is at the <Railroad Station>
-<Alfonso Shuford> is at the <Railroad Station>
-<Walker Cobb> is at the <Railroad Station>
+<Cleatus Merrick> is at the <Saloon>
+<Alfonso Shuford> is at the <Village>
+<Walker Cobb> is at the <Saloon>
 <Warren Brantley> is alive
 <Linda Brantley> is alive
 <Walker Cobb> is alive
@@ -62,8 +104,6 @@ Body:Prop
 <Alfonso Shuford> is alive
 <Ella Wadsworth> is alive
 <Soaring Eagle> is alive
-<Warren Brantley> is working
-<Linda Brantley> is working
 <cigarette> is at the <Railroad Station>
 <whiskey bottle> is at the <Saloon>
 <letter opener> is at the <Railroad Station>

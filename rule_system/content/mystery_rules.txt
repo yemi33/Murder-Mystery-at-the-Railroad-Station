@@ -1,8 +1,6 @@
 #Regular Conversations among non-detectives
 $Talk
-
 "{Initiator} talks to {Recipient} about {Action}"
-#prob:0.7
 roles:
 	Initiator:Character
 	Recipient:Character
@@ -13,14 +11,17 @@ preconditions:
 	(*:Character is at the Location)
   (*:Character is alive)
   (Initiator knows about Action)
-  !(Action is suspicious)
+  !(Action is scandalous)
   !(Recipient knows about Action)
   !(Recipient is a detective)
+  !(Recipient is the boss of the railroad station)
   !(Initiator is the culprit)
   !(Initiator talks to Recipient about Action)
   !(Action is a movement)
   !(Action is a conversation)
   !(Action is boring)
+  !(Action is suspicious)
+  !(case is closed)
 effects:
 	(*:Character knows about Action)
   (Initiator talks to Recipient about Action)
@@ -45,36 +46,43 @@ preconditions:
   !(Action is murder)
   !(Action is a movement)
   !(Action is a conversation)
+  !(Action is a motive)
   !(Guilty talks to Recipient about Action)
+  !(Action is suspicious)
+  !(case is closed)
 effects:
 	(Recipient knows about Action)
   (Guilty talks to Recipient about Action)
   (This is a conversation)
 
 $Gossip
-"{Witness} tells {WB} about {Action}"
+"{Gossiper} tells {WB} about {Action}"
 roles:
-  Witness:Character
+  Gossiper:Character
   WB:Character
   CM:Character
-  LB:Character
+  #LB:Character
   Action:Action
-  3rdPerson:Character
+  Witness:Character
 preconditions:
-  (*:Character is alive)
+  (Gossiper is alive)
+  (WB is alive)
+  (CM is alive)
   (Action is scandalous)
-  (Witness knows about Action)
-  (CM is related to Action)
-  (CM loves LB)/(LB loves CM) 
+  (Gossiper knows about Action)
+  !(Gossiper is the boss of the railroad station)
+  !(Gossiper is related to Action)
+  (CM is related to Action) 
   (WB is the boss of the railroad station)
-  !(Witness tells WB about Action)
+  !(Gossiper tells WB about Action)
+  !(case is closed)
 effects:
   (WB is jealous of CM)
   (This is a motive)
+  (WB is related to This)
   (WB knows about Action)
-  (Witness tells WB about Action)
+  (Gossiper tells WB about Action)
   (*:Character knows about This)
-  #(This is a conversation)
 
 $AsksForPromotion 
 "{Initiator} talks to {Recipient} about a promotion"
@@ -92,6 +100,7 @@ preconditions:
   (Initiator works for Recipient)
   !(Initiator receives a promotion)
   !(Initiator had their promotion rejected)
+  !(case is closed)
 effects:
 	(*:Character knows about This)
   (Initiator asks Recipient about a promotion)
@@ -115,6 +124,7 @@ preconditions:
   !(Initiator receives a promotion)
   (Initiator is ambitious)
   (Initiator asks Recipient about a promotion)
+  !(case is closed)
 effects:
   (Initiator had their promotion rejected)
   (Initiator is upset at Recipient)
@@ -138,6 +148,7 @@ preconditions:
   (Recipient is the boss of the railroad station)
   (Initiator asks Recipient about a promotion)
   (Initiator is ambitious)
+  !(case is closed)
 effects:
   (Initiator receives a promotion)
   (*:Character knows about This)
@@ -159,6 +170,7 @@ preconditions:
   (Recipient is the boss of the railroad station)
   !(Initiator receives the land)
   !(Initiator does not receive the land)
+  !(case is closed)
 effects:
 	(Initiator talks to Recipient about giving back the land)
 	(Recipient talks to Initiator about giving back the land)
@@ -184,6 +196,7 @@ preconditions:
   !(Initiator receives the land)
   (Recipient talks to Initiator about giving back the land)
   (Initiator is a native american chief)
+  !(case is closed)
 effects:
   (Initiator does not receive the land)
   (Initiator is upset at Recipient)
@@ -207,6 +220,7 @@ preconditions:
   (Recipient talks to Initiator about giving back the land)
   (Recipient is the boss of the railroad station)
   (Initiator is a native american chief)
+  !(case is closed)
 effects:
   (Initiator receives the land)
   (*:Character knows about This)
@@ -223,11 +237,11 @@ roles:
 preconditions:
 	(*:Character is at the Location)
   (*:Character is alive)
-  #(Recipient is working)
 	(Initiator lost his farm to the railroad)
   (Recipient is the boss of the railroad station)
   !(Initiator receives the compensation)
   !(Initiator does not receive the compensation)
+  !(case is closed)
 effects:
 	(Initiator talks to Recipient about giving compensation for the lost farm)
 	(Recipient talks to Initiator about giving compensation for the lost farm)
@@ -253,6 +267,7 @@ preconditions:
   !(Initiator receives the compensation)
   (Recipient talks to Initiator about giving compensation for the lost farm)
   (Initiator lost his farm to the railroad)
+  !(case is closed)
 effects:
   (Initiator does not receive the compensation)
   (Initiator is upset at Recipient)
@@ -276,6 +291,7 @@ preconditions:
   (Recipient talks to Initiator about giving compensation for the lost farm)
   (Recipient is the boss of the railroad station)
   (Initiator lost his farm to the railroad)
+  !(case is closed)
 effects:
   (Initiator receives the compensation)
   (*:Character knows about This)
@@ -296,6 +312,7 @@ preconditions:
   !(Initiator flirts with Recipient)
   (WB is the boss of the railroad station)
   !(Witness is a detective)
+  !(case is closed)
 effects:
   (Initiator flirts with Recipient)
   (*:Character knows about This)
@@ -314,18 +331,20 @@ roles:
   Witness:Character
 preconditions:
   (Initiator loves Recipient)
-  #!(Recipient loves Initiator)
   (Initiator flirts with Recipient)
   !(Initiator is rejected by Recipient)
   !(Initiator and Recipient are infatuated)
   !(Recipient and Initiator are infatuated)
   !(Witness is a detective)
+  !(case is closed)
 effects:
   (Initiator and Recipient are infatuated)
   (Recipient loves Initiator)
   (*:Character knows about This)
   (This is scandalous)
-  (*:Character is related to This)
+  (Initiator is related to This)
+  (Recipient is related to This)
+  (This is a motive)
 
 $Rejection 
 "{Recipient} rejects {Initiator}\'s advances"
@@ -341,6 +360,7 @@ preconditions:
   !(Initiator is rejected by Recipient)
   (WB is the boss of the railroad station)
   !(Witness is a detective)
+  !(case is closed)
 effects:
   (Initiator is rejected by Recipient)
   (Initiator is jealous of WB)
@@ -362,11 +382,13 @@ preconditions:
   (*:Character is alive)
   (Initiator and Recipient are infatuated)
   !(Witness is a detective)
+  !(case is closed)
 effects:
   (Initiator kisses Recipient)
   (This is scandalous)
   (*:Character knows about This)
-  (*:Character is related to This)
+  (Initiator is related to This)
+  (Recipient is related to This)
 
 
 $Murder
@@ -385,6 +407,7 @@ preconditions:
   !(Murderer murders Victim)
   !(Victim is a detective)
   !(murder has happened)
+  !(case is closed)
 effects:
 	(Murderer murders Victim)
 	!(Victim is alive)
@@ -396,8 +419,10 @@ effects:
   (This is murder)
   !(Murderer is sad)
   !(Murderer is upset at Victim)
+  (Victim is the victim)
   !(Murderer is jealous)
   (murder has happened)
+  (murder has happened at Location)
 	(*:Character knows about This)
 
 
@@ -414,12 +439,13 @@ preconditions:
   !(Evidence is at the Destination)
   (Evidence is used to murder)
   !(Evidence is discovered)
-  (*:Character is alive)
-  (*:Character is at the Origin)
+  (*:Character is aflive)
+  (Murderer is at the Origin)
   (Murderer is the culprit)
-  (Witness is at the Destination)
+  (Witness is at the Origin) / (Witness is at the Destination)
   !(Murderer is at the Destination)
   !(Murderer moves the Evidence)
+  !(case is closed)
 effects:
   !(Evidence is at the Origin)
   (Evidence is at the Destination)
@@ -432,7 +458,7 @@ effects:
 
 $Move
 "{Initiator} moves to {Destination}"
-prob:0.5
+prob:0.1
 roles:
   Initiator:Character
   Origin:Location
@@ -441,6 +467,7 @@ preconditions:
   (Initiator is at the Origin)
   !(Initiator is at the Destination)
   (Initiator is alive)
+  !(case is closed)
 effects:
   !(Initiator is at the Origin)
   (Initiator is at the Destination)
@@ -463,6 +490,7 @@ preconditions:
   !(Evidence is discovered by Discoverer)
   !(Evidence is discovered)
   !(Detective knows Evidence is the murder weapon)
+  !(case is closed)
 effects:
   (Discoverer knows about This)
   (Evidence is discovered by Discoverer)
@@ -489,6 +517,8 @@ preconditions:
   (Evidence is used to murder)
   (Evidence is discovered by Discoverer)
   !(Detective knows Evidence is the murder weapon)
+  !(case is closed)
+  !(case is briefed)
 effects:
   (Detective knows Evidence is the murder weapon)
 
@@ -499,25 +529,25 @@ roles:
   Evidence:Prop
   Witness:Character
   Murderer:Character
-  Victim:Victim
+  Victim:Character
   Location:Location
-  #Destination:Location
   Action:Action
 preconditions:
   (Detective is a detective)
   (Detective is at the Location)
-  #!(Detective is at the Destination)
   (Witness is at the Location)
   (Witness is alive)
   (Murderer is the culprit)
   (Detective knows Evidence is the murder weapon)
   (Witness saw Murderer with the Evidence)
-  (Detective learns about Action which is related to Murderer and could be a motive)
+  (Detective learns about Action which is related to Murderer and could be a motive)/(Detective knows about Action)
   !(Detective knows about Murderer moving the Evidence)
   !(Victim is alive)
+  !(case is closed)
+  !(case is briefed)
 effects:
   (Detective knows about Murderer moving the Evidence)
-  (This is a conversation)
+  (This  is a conversation)
 responses:
   Suspect(Detective=Detective,Evidence=Evidence,Suspect=Murderer,Action=Action,Victim=Victim)
 
@@ -530,20 +560,20 @@ roles:
   Interviewee:Character
   Suspect:Character
   Location:Location
-  #Destination:Location
   Victim:Character
 preconditions:
   (Detective is a detective)
   (Interviewee is alive)
   (Detective is at the Location)
-  #!(Detective is at the Destination)
   (Interviewee is at the Location)
   (Action is a motive)
-  (Detective knows Evidence is the murder weapon)
-  (Interviewee knows about Action)
   (Suspect is related to Action)
+  (Detective knows Evidence is the murder weapon)/(Detective knows about Action)
+  (Interviewee knows about Action)
   !(Detective learns about Action which is related to Suspect and could be a motive)
   !(Victim is alive)
+  !(case is closed)
+  !(case is briefed)
 effects:
   (Detective learns about Action which is related to Suspect and could be a motive)
   (This is a conversation)
@@ -557,41 +587,40 @@ roles:
   Evidence:Prop
   Suspect:Character
   Victim:Character
-  #Origin:Origin
-  #Location:Location
   Action:Action
 preconditions:
   (Detective is a detective)
   !(Victim is alive)
-  #(Detective is at the Origin)
-  #!(Detective is at the Location)
   (Detective knows Evidence is the murder weapon)
-  (Detective knows about Suspect moving the Evidence)/(Detective learns about Action which is related to Suspect and could be a motive)
+  (Action is a motive)
+  (Suspect is related to Action)
+  (Detective knows about Suspect moving the Evidence)/(Detective learns about Action which is related to Suspect and could be a motive)/(Detective knows about Action)
   !(Detective suspects that Suspect is the murderer)
+  !(case is closed)
+  !(case is briefed)
 effects:
   (Detective suspects that Suspect is the murderer)
-#responses:
-  #Pursue(Detective=Detective,Suspect=Suspect,Victim=Victim,Evidence=Evidence,Origin=Origin,Location=Location,Action=Action)
+
 
 $Pursue
 "Detective {Detective} pursues {Suspect}"
 roles:
   Detective:Character
   Suspect:Character
-  #Victim:Character
   Evidence:Prop
   Origin:Location
   Location:Location
-  Action:Action
 preconditions:
   (Detective is a detective)
   (Suspect is alive)
-  #!(Victim is alive)
   (Detective suspects that Suspect is the murderer)
-  (Detective learns about Action which is related to Suspect and could be motive)
   (Detective is at the Origin)
   (Suspect is at the Location)
   !(Detective is at the Location)
+  !(case is closed)
+  !(case is briefed)
+  !(Suspect confesses that he is the murderer)
+  !(Suspect denies that he is the murderer)
 effects:
   (Detective is at the Location)
   !(Detective is at the Origin)
@@ -604,18 +633,15 @@ $Accuse
 roles:
   Detective:Character
   Suspect:Character
-  #Victim:Character
-  #Evidence:Prop
-  #Action:Action
   Location:Location
 preconditions:
   (Detective is at the Location)
   (Suspect is at the Location)
   (Detective is a detective)
-  #!(Victim is alive)
   (Detective suspects that Suspect is the murderer)
-  #(Detective learns about Action which is related to Suspect and could be motive)
   !(Detective accuses Suspect of murder)
+  !(case is closed)
+  !(case is briefed)
 effects:
   (Detective accuses Suspect of murder)
 responses:
@@ -623,36 +649,54 @@ responses:
   FalseAccusation(Suspect=Suspect,Detective=Detective)
 
 $Confess
-"{Suspect} confesses that he is the murderer"
+"{Suspect} confesses that he is the murderer. Case closed."
 roles:
   Suspect:Character 
   Detective:Character
-  #Evidence:Prop
-  #Victim:Character
 preconditions:
   (Detective is a detective)
   (Suspect is the culprit)
-  #!(Victim is alive)
   (Detective accuses Suspect of murder)
   !(Suspect confesses that he is the murderer)
 effects:
   (Suspect confesses that he is the murderer)
   (Detective suspects that Suspect is the murderer)
+  (case is closed)
 
 $FalseAccusation
 "{Suspect} denies that he is the murderer and gives an alibi"
 roles:
   Suspect:Character 
   Detective:Character
-  #Evidence:Prop
-  #Victim:Character
 preconditions:
   (Detective is a detective)
   !(Suspect is the culprit)
-  #!(Victim is alive)
   (Detective accuses Suspect of murder)
   !(Suspect denies that he is the murderer)
+  !(case is closed)
 effects:
   (Suspect denies that he is the murderer)
   (Detective suspects that Suspect is the murderer)
+
+$Briefing
+"Detective {Detective} announces that it has been revealed that {Culprit} murdered {Victim} with {Weapon} at {Location} because of {Action}"
+roles:
+  Detective:Character
+  Culprit:Character
+  Victim:Character
+  Weapon:Prop
+  Location:Location
+  Action:Action
+preconditions:
+  (Detective is a detective)
+  (Culprit is the culprit)
+  !(Victim is alive)
+  (Weapon is used to murder)
+  (murder has happened at Location)
+  (Detective learns about Action which is related to Culprit and could be a motive)
+  (Culprit confesses that he is the murderer)
+  (case is closed)
+effects:
+  (case is briefed)
+
 

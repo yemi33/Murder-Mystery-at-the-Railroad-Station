@@ -106,7 +106,6 @@ def mystery():
         alignment="left",
         background_color="white"
       )
-      book.insert_page_break()
       book.insert_space(height=1.0)
       book.write(text=text)
       book.insert_page_break()
@@ -154,6 +153,6 @@ def mystery():
   book.build(page_numbers=True)
 
 def run():
-    """The function James will be using to grade your component."""
-    print("\n\n-- Component 3 -- ")
+    """Generates the mystery."""
+    print("\n\n-- Mystery Begins -- ")
     mystery()
