@@ -1,5 +1,5 @@
 # Murder-Mystery-at-the-Railroad-Station
-A Rule-Based Murder Mystery that is procedurally generated and therefore different everytime.
+A Rule-Based Murder Mystery that is procedurally generated and which presents a new plot each time it's run.
 
 ## To Run
 1. [![Work in Repl.it](https://classroom.github.com/assets/work-in-replit-14baed9a392b3a25080506f3b7b6d57f295ec2978f6f33ec97e36a161684cbe9.svg)](https://replit.com/join/dngvzlyb-yemi33)
