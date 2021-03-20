@@ -154,6 +154,6 @@ def mystery():
   book.build(page_numbers=True)
 
 def run():
-    """The function James will be using to grade your component."""
-    print("\n\n-- Component 3 -- ")
+    """Generates the mystery."""
+    print("\n\n-- Mystery Begins -- ")
     mystery()
