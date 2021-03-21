@@ -8,7 +8,7 @@ A Rule-Based Murder Mystery that is procedurally generated and which presents a 
 4. Check the generated_books folder for the completed book. 
 
 ## Rule System
-Domains and rules can be found in the `rule_system` folder. 
+Domains and rules can be found in the `rule_system/content` folder. 
 
 ## Grammar
-Grammar used for the story can be found in the `grammar` folder.
+Grammar used for the story can be found in the `grammar/grammars` folder.
